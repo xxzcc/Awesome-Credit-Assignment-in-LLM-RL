@@ -22,7 +22,11 @@ We survey **47 credit assignment methods** (41 core, 6 adjacent enablers) publis
 ## Overview
 
 <p align="center">
-  <img src="assets/taxonomy.png" width="90%" alt="Taxonomy Overview">
+  <img src="assets/taxonomy.png" width="90%" alt="Taxonomy Grid">
+</p>
+
+<p align="center">
+  <img src="assets/taxonomy_tree.png" width="90%" alt="Taxonomy Tree">
 </p>
 
 Credit assignment (CA) in LLM RL addresses a fundamental question: when the only feedback is a sparse terminal reward, **which actions were responsible for the outcome?** This problem manifests in two regimes:
@@ -38,7 +42,7 @@ Our taxonomy organizes methods along two axes:
 
 ## Updates
 
-- **[2025.04]** First version of the survey released on arXiv. Repository created.
+- **[2026.04]** First version of the survey released on arXiv. Repository created.
 
 ---
 
@@ -65,7 +69,6 @@ Our taxonomy organizes methods along two axes:
 - [Benchmarks](#benchmarks)
 - [Citation](#citation)
 - [Contributing](#contributing)
-- [Star History](#star-history)
 
 ---
 
@@ -537,12 +540,6 @@ We welcome contributions! If you find a relevant paper that we missed or want to
 Please follow the existing format when adding new entries.
 
 For any questions or suggestions, feel free to contact: **zcc1959339538@gmail.com**
-
----
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=xxzcc/Awesome-Credit-Assignment-in-LLM-RL&type=Date)](https://star-history.com/#xxzcc/Awesome-Credit-Assignment-in-LLM-RL&Date)
 
 ---
 
