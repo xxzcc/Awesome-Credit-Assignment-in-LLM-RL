@@ -540,9 +540,3 @@ We welcome contributions! If you find a relevant paper that we missed or want to
 Please follow the existing format when adding new entries.
 
 For any questions or suggestions, feel free to contact: **zcc1959339538@gmail.com**
-
----
-
-## Acknowledgments
-
-- Thanks to [A-Comprehensive-Survey-For-Long-Context-Language-Modeling](https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling) for the repository structure reference.
