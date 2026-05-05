@@ -520,11 +520,11 @@ Our taxonomy organizes methods along two axes:
 If you find this repository useful, please cite our survey:
 
 ```bibtex
-@article{zhang2025credit,
+@article{zhang2026reasoning,
   title={From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models},
   author={Zhang, Chenchen},
   journal={arXiv preprint arXiv:2604.09459},
-  year={2025}
+  year={2026}
 }
 ```
 
