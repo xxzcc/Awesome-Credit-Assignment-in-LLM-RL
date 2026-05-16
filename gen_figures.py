@@ -50,20 +50,23 @@ def draw_label(ax, x, y, text, color_bg, color_edge, color_text, fontsize=8):
 # Figure 1 — Taxonomy Grid
 # ============================================================
 def make_taxonomy_grid():
-    fig, ax = plt.subplots(figsize=(18, 11))
-    ax.set_xlim(-0.8, 5.5)
+    fig, ax = plt.subplots(figsize=(24, 11))
+    ax.set_xlim(-0.8, 7.6)
     ax.set_ylim(-0.6, 5.2)
     ax.set_aspect('auto')
     ax.axis('off')
 
-    cols = ['Monte Carlo', 'TD / Value', 'LLM-as-Critic', 'Game-theoretic', 'Info-theoretic']
+    cols = [
+        'Monte Carlo', 'TD / Value', 'LLM-as-Critic', 'Game-theoretic',
+        'Info-theoretic', 'Uncertainty', 'Verifiable /\nStructured'
+    ]
     rows = ['Token', 'Segment', 'Step / Turn', 'Multi-Agent']
 
     # draw grid
-    for i in range(6):  # vertical lines
+    for i in range(8):  # vertical lines
         ax.plot([i + 0.5 - 0.5, i + 0.5 - 0.5], [0.3, 4.5], color=GRID_COLOR, lw=1)
     for j in range(5):  # horizontal lines
-        ax.plot([0, 5.5], [j + 0.5 - 0.2, j + 0.5 - 0.2], color=GRID_COLOR, lw=1)
+        ax.plot([0, 7.5], [j + 0.5 - 0.2, j + 0.5 - 0.2], color=GRID_COLOR, lw=1)
 
     # column headers
     for i, col in enumerate(cols):
@@ -77,70 +80,60 @@ def make_taxonomy_grid():
     # Axis labels
     ax.text(-0.7, 2.5, 'Granularity  ↑', ha='center', va='center', fontsize=12,
             fontweight='bold', rotation=90, color='#374151')
-    ax.text(3.0, -0.35, 'Methodology  →', ha='center', va='center', fontsize=12,
+    ax.text(4.0, -0.35, 'Methodology  →', ha='center', va='center', fontsize=12,
             fontweight='bold', color='#374151')
 
+    def draw_cell(x, y, text, bg, edge, tc, fontsize=7.4):
+        """Draw one compact taxonomy-cell summary."""
+        patch = FancyBboxPatch(
+            (x - 0.44, y - 0.35), 0.88, 0.70,
+            boxstyle="round,pad=0.05",
+            facecolor=bg, edgecolor=edge, linewidth=1.0, zorder=4
+        )
+        ax.add_patch(patch)
+        ax.text(x, y, text, ha='center', va='center',
+                fontsize=fontsize, color=tc, fontweight='bold',
+                linespacing=1.18, zorder=5)
+
     # ---------- Data ----------
-    # (col_idx 1-5, row_y 4=Token, 3=Segment, 2=Step/Turn, 1=Multi-Agent)
-    # Token row
-    entries = [
+    # One compact method group per taxonomy cell keeps the public README figures legible.
+    cells = [
         # Token
-        (1, 4.0, 'VinePPO', 'r'),
-        (2, 4.1, 'RED', 'r'),
-        (2, 3.9, 'T-REG', 'r'),
-        (4, 4.0, 'From r to Q*', 'r'),
+        (1, 4.0, 'VinePPO', BLUE, BLUE_EDGE, BLUE_TEXT),
+        (2, 4.0, 'RED\nT-REG', BLUE, BLUE_EDGE, BLUE_TEXT),
+        (4, 4.0, 'From r to Q*', BLUE, BLUE_EDGE, BLUE_TEXT),
         # Segment
-        (1, 3.0, 'SPO', 'r'),
-        (2, 3.0, 'TEMPO', 'r'),
-        (4, 3.0, 'SCAR', 'r'),
-        # Step/Turn — MC
-        (1, 2.25, 'PURE', 'r'),
-        (1, 2.0, 'GiGPO', 'a'),
-        (1, 1.75, 'SPRO', 'r'),
-        # Step/Turn — TD
-        (2, 2.4, 'ArCHer', 'a'),
-        (2, 2.2, 'AgentPRM', 'a'),
-        (2, 2.0, 'SPA-RL', 'a'),
-        (2, 1.8, 'iStar', 'a'),
-        (2, 1.6, 'Turn-PPO', 'a'),
-        (1.55, 1.55, 'SORL', 'a'),
-        # Step/Turn — LLM-as-Critic
-        (3, 2.35, 'CAPO', 'r'),
-        (3, 2.1, 'SWEET-RL', 'a'),
-        (3, 1.85, 'HCAPO', 'a'),
-        (3, 1.6, 'LaRe', 'a'),
-        (3.4, 1.55, 'TARL', 'a'),
-        # Step/Turn — Game-theoretic
-        (4, 2.15, 'C3', 'a'),
-        (4, 1.9, 'CCPO', 'a'),
-        # Step/Turn — Info-theoretic
-        (5, 2.25, 'IGPO', 'a'),
-        (5, 2.0, 'CARL', 'a'),
-        (5, 1.75, 'HICRA', 'r'),
-        (4.5, 1.55, 'ITPO', 'a'),
-        # Multi-Agent
-        (1, 1.0, 'M-GRPO', 'm'),
-        (3, 1.0, 'LLM-MCA', 'm'),
-        (4, 1.0, 'QLLM', 'm'),
-        (5, 1.0, 'C3†', 'm'),
+        (1, 3.0, 'SPO', BLUE, BLUE_EDGE, BLUE_TEXT),
+        (2, 3.0, 'TEMPO', BLUE, BLUE_EDGE, BLUE_TEXT),
+        (4, 3.0, 'SCAR', BLUE, BLUE_EDGE, BLUE_TEXT),
+        # Step / Turn
+        (1, 2.0, 'PURE\nSPRO\nGiGPO\nAT^2PO*', RED, RED_EDGE, RED_TEXT),
+        (2, 2.0, 'ArCHer\nAgentPRM\nTurn-PPO\nSORL', RED, RED_EDGE, RED_TEXT),
+        (3, 2.0, 'CAPO\nSWEET-RL\nHCAPO\nTARL\nRubric-RL*', RED, RED_EDGE, RED_TEXT, 6.8),
+        (4, 2.0, 'C3\nCCPO', RED, RED_EDGE, RED_TEXT),
+        (5, 2.0, 'IGPO\nITPO\nA^2TGPO*', RED, RED_EDGE, RED_TEXT),
+        (6, 2.0, 'AEM*\nT^2PO*', RED, RED_EDGE, RED_TEXT),
+        (7, 2.0, 'GVPO*\nA^3*\nPOAD', RED, RED_EDGE, RED_TEXT),
+        # Multi-Agent / related
+        (1, 1.0, 'M-GRPO', PURPLE, PURPLE_EDGE, PURPLE_TEXT),
+        (3, 1.0, 'LLM-MCA', PURPLE, PURPLE_EDGE, PURPLE_TEXT),
+        (4, 1.0, 'QLLM\nCore CA*', PURPLE, PURPLE_EDGE, PURPLE_TEXT),
+        (5, 1.0, 'C3†\nSHARP', PURPLE, PURPLE_EDGE, PURPLE_TEXT),
+        (6, 1.0, 'Dr. MAS', PURPLE, PURPLE_EDGE, PURPLE_TEXT),
+        (7, 1.0, 'MAPPA\nOrch. Traces*', PURPLE, PURPLE_EDGE, PURPLE_TEXT),
     ]
 
-    # first pass to render so get_window_extent works
-    fig.canvas.draw()
-
-    for (x, y, name, cat) in entries:
-        if cat == 'r':
-            draw_label(ax, x, y, name, BLUE, BLUE_EDGE, BLUE_TEXT, fontsize=8.5)
-        elif cat == 'a':
-            draw_label(ax, x, y, name, RED, RED_EDGE, RED_TEXT, fontsize=8.5)
-        else:
-            draw_label(ax, x, y, name, PURPLE, PURPLE_EDGE, PURPLE_TEXT, fontsize=8.5)
+    for cell in cells:
+        draw_cell(*cell)
 
     # Evolution trend arrow
-    ax.annotate('', xy=(4.8, 1.2), xytext=(1.2, 3.8),
-                arrowprops=dict(arrowstyle='->', color='#9ca3af', lw=2, ls='--'))
-    ax.text(3.2, 2.9, 'Evolution trend', ha='center', va='center',
-            fontsize=9, fontstyle='italic', color='#9ca3af', rotation=-35)
+    ax.annotate('', xy=(7.0, 1.25), xytext=(1.2, 3.8),
+                arrowprops=dict(arrowstyle='->', color='#9ca3af', lw=2, ls='--',
+                                alpha=0.35),
+                zorder=1)
+    ax.text(4.3, 3.0, 'Evolution trend', ha='center', va='center',
+            fontsize=9, fontstyle='italic', color='#9ca3af', rotation=-25,
+            alpha=0.65, zorder=1)
 
     # Legend
     for i, (label, bg, edge, tc) in enumerate([
@@ -148,13 +141,16 @@ def make_taxonomy_grid():
         ('Agentic RL', RED, RED_EDGE, RED_TEXT),
         ('Multi-Agent', PURPLE, PURPLE_EDGE, PURPLE_TEXT),
     ]):
-        x = 1.5 + i * 1.5
+        x = 2.5 + i * 1.5
         patch = FancyBboxPatch((x - 0.3, -0.1), 1.2, 0.3,
                                boxstyle="round,pad=0.05",
                                facecolor=bg, edgecolor=edge, linewidth=1)
         ax.add_patch(patch)
         ax.text(x + 0.3, 0.05, label, ha='center', va='center',
                 fontsize=9, color=tc, fontweight='bold')
+
+    ax.text(6.7, 0.05, '* recent / adjacent additions', ha='center',
+            va='center', fontsize=8, color='#6b7280', fontstyle='italic')
 
     plt.tight_layout()
     plt.savefig('assets/taxonomy.png', dpi=300, bbox_inches='tight',
@@ -167,9 +163,9 @@ def make_taxonomy_grid():
 # Figure 2 — Taxonomy Tree (horizontal)
 # ============================================================
 def make_taxonomy_tree():
-    fig, ax = plt.subplots(figsize=(24, 16))
+    fig, ax = plt.subplots(figsize=(26, 18))
     ax.set_xlim(-0.5, 10.5)
-    ax.set_ylim(-1, 28)
+    ax.set_ylim(-1, 32)
     ax.axis('off')
 
     # Helper
@@ -204,36 +200,36 @@ def make_taxonomy_tree():
     fig.canvas.draw()
 
     # ---- Root ----
-    root = box(ax, 0.5, 14, 'Credit Assignment\nin LLM RL', '#f3f4f6', '#6b7280', '#111827', fs=11, bold=True)
+    root = box(ax, 0.5, 16, 'Credit Assignment\nin LLM RL', '#f3f4f6', '#6b7280', '#111827', fs=11, bold=True)
 
     # ---- Level 1: Three branches ----
     # Reasoning RL
-    r_y_center = 24
+    r_y_center = 27
     r_box = box(ax, 2.5, r_y_center, 'Reasoning RL', BLUE, BLUE_EDGE, BLUE_TEXT, fs=10, bold=True)
     # Agentic RL
-    a_y_center = 13
+    a_y_center = 15
     a_box = box(ax, 2.5, a_y_center, 'Agentic RL', RED, RED_EDGE, RED_TEXT, fs=10, bold=True)
     # Multi-Agent
-    m_y_center = 1.5
+    m_y_center = 2.0
     m_box = box(ax, 2.5, m_y_center, 'Multi-Agent', PURPLE, PURPLE_EDGE, PURPLE_TEXT, fs=10, bold=True)
 
     # Connect root to branches
     for by in [r_y_center, a_y_center, m_y_center]:
-        connect_h(ax, root[1], 14, r_box[0], by)
+        connect_h(ax, root[1], 16, r_box[0], by)
 
     # ---- Reasoning sub-branches ----
     r_subs = [
-        ('Token-Level', 26.5, [
+        ('Token-Level', 30.0, [
             'VinePPO (MC), RED (Redistrib.)',
             'T-REG (Self-gen.), From r to Q* (Implicit)'
         ]),
-        ('Segment-Level', 24.0, [
+        ('Segment-Level', 27.5, [
             'SPO (MC), SCAR (Shapley), TEMPO (Tree-TD)'
         ]),
-        ('Step-Level', 21.5, [
+        ('Step-Level', 25.0, [
             'PURE (PRM), SPRO (Masked Adv.), CAPO (LLM-Critic)',
             'ACPO (Attribution), HICRA (Hierarchy), PRL (Entropy)',
-            'InT (Intervention), FinePO (Fine PRM)'
+            'InT (Intervention), FinePO (Fine PRM), Rubric-RL*'
         ]),
     ]
     for name, y, leaves in r_subs:
@@ -245,24 +241,32 @@ def make_taxonomy_tree():
 
     # ---- Agentic sub-branches ----
     a_subs = [
-        ('Turn-Level PRM', 18.5, [
+        ('Turn-Level PRM', 22.0, [
             'AgentPRM (TD+GAE), SWEET-RL (Priv. Critic)',
             'Turn-PPO (Turn MDP), SORL (Bias-corr.)',
             'TARL (LLM-Judge), ITPO (Implicit), Turn-Level (Hybrid)'
         ]),
-        ('Hindsight /\nCounterfactual', 15.5, [
+        ('Hindsight /\nCounterfactual', 19.0, [
             'HCAPO (Hindsight), C3 (LOO)',
             'CCPO (Causal), CriticSearch (Retrospective)'
         ]),
-        ('Critic-Free /\nStep-Level', 12.5, [
+        ('Critic-Free /\nStep-Level', 16.0, [
             'GiGPO (Group-in-Group), POAD (Action Decomp.)',
-            'CARL (Entropy), iStar (Implicit DPO), IGPO (Info-theoretic)'
+            'CARL (Entropy), iStar (Implicit DPO)'
         ]),
-        ('Hierarchical', 10.0, [
+        ('Uncertainty /\nInformation Gain', 13.0, [
+            'IGPO (Info gain), A^2TGPO (Adaptive clipping)',
+            'AEM (Entropy modulation), T^2PO (Uncertainty control)'
+        ]),
+        ('Verifiable /\nStructured Feedback', 10.0, [
+            'GVPO (Process-verifiable feedback)',
+            'A^3 / CLI agents (Structured action credit)'
+        ]),
+        ('Hierarchical', 7.0, [
             'ArCHer (TD Hierarchy), PilotRL (Progressive)',
-            'StepAgent (IRL)'
+            'StepAgent (IRL), AT^2PO (Turn tree search)'
         ]),
-        ('Adjacent\nEnablers', 7.5, [
+        ('Adjacent\nEnablers', 4.5, [
             'SPA-RL, Lightning, RAGEN',
             'SCRIBE, PRS, AdaptSeg'
         ]),
@@ -276,10 +280,12 @@ def make_taxonomy_tree():
 
     # ---- Multi-Agent sub-branches ----
     m_subs = [
-        ('Agent-Level', 1.5, [
+        ('Agent-Level', 2.0, [
             'M-GRPO (Hierarchical), SHARP (Shapley)',
             'MAPPA (Per-action PRM), Dr. MAS (Agent-wise Adv.)',
-            'LLM-MCA (LLM-Critic), QLLM (LLM-gen.)'
+            'LLM-MCA (LLM-Critic), QLLM (LLM-gen.)',
+            'Orchestration Traces* (token-to-team units)',
+            'In-Context Core* (coalition/contributor credit)'
         ]),
     ]
     for name, y, leaves in m_subs:
