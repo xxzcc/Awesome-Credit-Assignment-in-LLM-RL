@@ -44,7 +44,7 @@ Recent agentic-RL papers increasingly move beyond generic trajectory-level rewar
 
 ## Updates
 
-- **[2026.05]** Added recent agentic, coding-agent, uncertainty-control, multi-agent orchestration, and adjacent credit-assignment papers.
+- 🔥 **[2026.05] Latest:** Added recent agentic, coding-agent, uncertainty-control, multi-agent orchestration, and adjacent credit-assignment papers.
 - **[2026.04]** First version of the survey released on arXiv. Repository created.
 
 ---
