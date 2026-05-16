@@ -15,7 +15,7 @@ This repository accompanies our survey paper:
 >
 > [[Paper]](https://arxiv.org/abs/2604.09459)
 
-We survey **47 credit assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026, covering reasoning RL, agentic RL, and multi-agent settings.
+The original survey snapshot covers **47 credit assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. This repository is maintained as a living list and may include newer or adjacent papers beyond the paper snapshot.
 
 ---
 
@@ -36,18 +36,40 @@ Credit assignment (CA) in LLM RL addresses a fundamental question: when the only
 
 Our taxonomy organizes methods along two axes:
 - **Granularity**: Token / Segment / Step-Turn / Multi-Agent
-- **Methodology**: Monte Carlo / Temporal Difference / LLM-as-Critic / Game-theoretic / Information-theoretic
+- **Methodology**: Monte Carlo / Temporal Difference / LLM-as-Critic / Game-theoretic / Information-theoretic / uncertainty-control / verifiable-feedback shaping
+
+Recent agentic-RL papers increasingly move beyond generic trajectory-level rewards toward **turn/action-aware optimization**: execution feedback for coding agents, response-level entropy or uncertainty control, information-gain normalization across turns, and structured action credit for CLI-style environments.
 
 ---
 
 ## Updates
 
+- **[2026.05]** Added recent agentic, coding-agent, uncertainty-control, multi-agent orchestration, and adjacent credit-assignment papers.
 - **[2026.04]** First version of the survey released on arXiv. Repository created.
+
+---
+
+## Recent Additions
+
+Recent papers added after the initial public survey snapshot. We mark papers as **core** when the method directly changes how sparse outcome signal is assigned to tokens, turns, actions, or agents; otherwise they are listed as **adjacent/related**.
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **AT$^2$PO: Agentic Turn-based Policy Optimization via Tree Search** [[Paper]](https://arxiv.org/abs/2601.04767) | 2026 | Core | Turn | Uses turn-level tree structure, entropy-guided expansion, and turn-wise credit assignment for multi-turn agentic RL. |
+| **GVPO: Group Verification-based Policy Optimization for Interactive Coding Agents** [[OpenReview]](https://openreview.net/forum?id=RY47Tq0VsV) | 2026 | Core | Step/Action | Shapes advantages using both outcome-verifiable rewards and process-verifiable execution feedback for interactive coding agents. |
+| **AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning** [[Paper]](https://arxiv.org/abs/2605.00425) | 2026 | Core | Response/Turn | Uses response-level entropy dynamics to modulate advantages without external process supervision. |
+| **T$^2$PO: Uncertainty-Guided Exploration Control for Stable Multi-Turn Agentic Reinforcement Learning** [[Paper]](https://arxiv.org/abs/2605.02178) | 2026 | Core | Token/Turn | Controls exploration through token-level uncertainty interventions and turn-level resampling. |
+| **Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces** [[Paper]](https://arxiv.org/abs/2605.02801) | 2026 | Related | Trace/Agent/Team | Frames reward and credit-bearing units from token to team in LLM-based multi-agent orchestration. |
+| **A$^2$TGPO: Agentic Turn-Group Policy Optimization with Adaptive Turn-level Clipping** [[Paper]](https://arxiv.org/abs/2605.06200) | 2026 | Core | Turn | Refines information-gain credit with turn-group normalization, variance-rescaled accumulation, and adaptive turn-level clipping. |
+| **Learning CLI Agents with Structured Action Credit under Selective Observation** [[Paper]](https://arxiv.org/abs/2605.08013) | 2026 | Core | Turn/Action | Introduces Action Advantage Assignment (A$^3$) for CLI agents using structured action sub-chain residuals and trajectory margins. |
+| **Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning** [[Paper]](https://arxiv.org/abs/2605.08061) | 2026 | Adjacent | Criterion/Step | Provides structured partial-credit judge rewards; relevant as reward shaping and process-supervision infrastructure. |
+| **In-Context Credit Assignment via the Core** [[Paper]](https://arxiv.org/abs/2605.06920) | 2026 | Related | Contributor/Coalition | Applies cooperative game theory to in-context credit assignment for AI-generated content; related to game-theoretic CA but not LLM-policy RL. |
 
 ---
 
 ## Table of Contents
 
+- [Recent Additions](#recent-additions)
 - [Foundational & Background](#foundational--background)
   - [Surveys & Overviews](#surveys--overviews)
   - [Classical RL Foundations](#classical-rl-foundations)
@@ -509,8 +531,11 @@ Our taxonomy organizes methods along two axes:
 | WebShop | Tool-use / shopping | 5--15 | 5K--20K |
 | WebArena | Web navigation | 10--30 | 30K--100K |
 | SWE-bench | Software engineering | 20--100+ | 100K--500K+ |
+| AppWorld | Interactive coding / tool use | 5--50+ | 20K--200K+ |
+| ShellOps | CLI repository tasks | 5--50+ | 20K--200K+ |
 | TextCraft | Tool-use crafting | 5--20 | 5K--30K |
 | HotpotQA | Multi-hop QA | 5--15 | 5K--20K |
+| Search QA | Search-based tool use | 5--30 | 10K--100K |
 | ColBench | Collaborative coding | 10--30 | 30K--100K |
 
 ---
