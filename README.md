@@ -44,14 +44,60 @@ Recent agentic-RL papers increasingly move beyond generic trajectory-level rewar
 
 ## Updates
 
-- 🔥 **[2026.05] Latest:** Added recent agentic, coding-agent, uncertainty-control, multi-agent orchestration, and adjacent credit-assignment papers.
+- 🔥 **[2026.07] Latest:** Added grouped 2026 refresh/gap-fill credit-assignment papers, related signals/evaluation resources, and one backfilled 2025 core GRPO credit-assignment paper.
+- **[2026.05]** Added recent agentic, coding-agent, uncertainty-control, multi-agent orchestration, and adjacent credit-assignment papers.
 - **[2026.04]** First version of the survey released on arXiv. Repository created.
 
 ---
 
 ## Recent Additions
 
-Recent papers added after the initial public survey snapshot. We mark papers as **core** when the method directly changes how sparse outcome signal is assigned to tokens, turns, actions, or agents; otherwise they are listed as **adjacent/related**.
+Recent additions are newly added to this repository, not necessarily newly published papers. We mark papers as **core** when the method directly changes how sparse outcome signal is assigned to tokens, turns, actions, or agents. Some core papers are backfilled; non-core entries are listed as **near-core**, **related signals**, or **evaluation** resources.
+
+### 2026.07 Refresh and Gap-Fill
+
+#### Backfilled Core
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **GRPO-$\lambda$: Credit Assignment improves LLM Reasoning** [[Paper]](https://arxiv.org/abs/2510.00194) | 2025 | Core | Token/Sequence | Extends GRPO with critic-free lambda-return and eligibility-trace style weighting for finer token-sequence credit. |
+
+#### Core Methods
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **DelTA: Discriminative Token Credit Assignment for Reinforcement Learning from Verifiable Rewards** [[Paper]](https://arxiv.org/abs/2605.21467) | 2026 | Core | Token | Reweights RLVR updates with discriminative token coefficients to amplify token-gradient directions associated with reward differences. |
+| **From Reasoning Chains to Verifiable Subproblems: Curriculum Reinforcement Learning Enables Credit Assignment for LLM Reasoning (SCRL)** [[Paper]](https://arxiv.org/abs/2605.22074) | 2026 | Core | Subproblem/Span | Converts reasoning chains into verifiable subproblems and assigns normalized advantages to corresponding answer spans. |
+| **TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning** [[Paper]](https://arxiv.org/abs/2606.32017) | 2026 | Core | Segment/Turn | Adds semantic role labels to outcome credit and maps them to bounded segment-level process rewards for agentic RL. |
+| **Outcome-Grounded Advantage Reshaping for Fine-Grained Credit Assignment in Mathematical Reasoning (OAR)** [[Paper]](https://arxiv.org/abs/2601.07408) | 2026 | Core | Token/Step | Redistributes GRPO advantages using outcome-sensitivity signals from counterfactual perturbations or gradient proxies. |
+| **CRAFT: Counterfactual Credit Assignment from Free Sibling Rollouts for Self-Distilled Agentic Reinforcement Learning** [[Paper]](https://arxiv.org/abs/2606.29476) | 2026 | Core | Token/Step | Uses free sibling rollouts to estimate signed counterfactual token credit for self-distilled agentic RL. |
+| **Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards (SC-GRPO)** [[Paper]](https://arxiv.org/abs/2606.18810) | 2026 | Core | Token | Uses verified self-conditioned trajectories to weight GRPO gradients with per-token KL-based credit. |
+| **GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards** [[Paper]](https://arxiv.org/abs/2606.04889) | 2026 | Core | Token | Applies gradient-activation saliency to reweight sequence-level advantages into intrinsic token-wise advantages. |
+| **Verifiable Process Rewards for Agentic Reasoning (VPR)** [[Paper]](https://arxiv.org/abs/2605.10325) | 2026 | Core | Turn (verifiable feedback) | Converts intermediate symbolic or algorithmic oracles into dense turn-level supervision for long-horizon agentic credit assignment. |
+
+#### Near-Core / CA-Adjacent Optimization
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **APPO: Agentic Procedural Policy Optimization** [[Paper]](https://arxiv.org/abs/2606.12384) | 2026 | Near-Core | Decision/Procedure | Moves agent optimization toward fine-grained procedure decisions and procedure-level advantage scaling. |
+| **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** [[Paper]](https://arxiv.org/abs/2606.26790) | 2026 | Near-Core | Token/Skill | Extracts episode- and step-level hindsight skills from on-policy trajectories to form token-level self-distillation advantages. |
+| **Entropy Polarity in Reinforcement Fine-Tuning: Direction, Asymmetry, and Control (PAPO)** [[Paper]](https://arxiv.org/abs/2605.11775) | 2026 | Near-Core | Token/Entropy | Uses signed token-level entropy polarity to adaptively reweight advantages across entropy-expanding and entropy-contracting updates. |
+
+#### Related Signals
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents** [[Paper]](https://arxiv.org/abs/2606.26080) | 2026 | Related Signal | Step/Turn | Derives an implicit progress signal from the log-probability ratio between an RL-trained policy and its reference policy for step-level scoring and failure attribution. |
+
+#### Evaluation / Benchmark
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **QVal: Cheaply Evaluating Dense Supervision Signals for Long-Horizon LLM Agents** [[Paper]](https://arxiv.org/abs/2606.32034) | 2026 | Evaluation | State/Action | Provides a training-free benchmark for testing whether dense supervision scores align with reference-policy Q-values in long-horizon agent tasks. |
+
+Additional related threads kept out of the main method lists: **STARE: Surprisal-Guided Token-Level Advantage Reweighting for Policy Entropy Stability** [[Paper]](https://arxiv.org/abs/2606.19236) for entropy-aware token advantage reweighting; **Not only where, But when: Temporal Scheduling for RLVR** [[Paper]](https://arxiv.org/abs/2605.25381) for scheduling credit-allocation criteria over training; and **Self-Distilled Agentic Reinforcement Learning (SDAR)** [[Paper]](https://arxiv.org/abs/2605.15155) as a self-distillation background line for agentic dense supervision.
+
+### Earlier 2026.05 Additions
 
 | Paper | Year | Type | Granularity | Why it is relevant |
 |-------|------|------|-------------|--------------------|
