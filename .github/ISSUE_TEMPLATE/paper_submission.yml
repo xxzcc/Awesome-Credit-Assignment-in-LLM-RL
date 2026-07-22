@@ -1,0 +1,76 @@
+name: Suggest a paper
+description: Propose a paper or evaluation resource for the curated catalog.
+title: "[Paper]: "
+body:
+  - type: markdown
+    attributes:
+      value: Please check the current README and machine-readable catalog for duplicates before submitting.
+  - type: input
+    id: title
+    attributes:
+      label: Official title
+      placeholder: Full paper title
+    validations:
+      required: true
+  - type: input
+    id: paper_url
+    attributes:
+      label: Canonical paper URL
+      description: Prefer arXiv, OpenReview, or official proceedings.
+      placeholder: https://arxiv.org/abs/...
+    validations:
+      required: true
+  - type: dropdown
+    id: setting
+    attributes:
+      label: Setting
+      options:
+        - Reasoning RL
+        - Agentic RL
+        - Multi-Agent RL
+        - Related / Non-policy RL
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Proposed scope
+      options:
+        - Core
+        - Near-Core
+        - Related Signal
+        - Evaluation
+        - Unsure
+    validations:
+      required: true
+  - type: input
+    id: granularity
+    attributes:
+      label: Credit granularity
+      placeholder: Token, segment, step, turn, action, agent, or combination
+    validations:
+      required: true
+  - type: input
+    id: methodology
+    attributes:
+      label: Main methodology
+      placeholder: Counterfactual rollout, TD critic, advantage reweighting, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Why this is credit assignment
+      description: State what signal is assigned to which decision unit and how this differs from trajectory-level reward.
+    validations:
+      required: true
+  - type: input
+    id: code_url
+    attributes:
+      label: Official code URL
+      description: Leave blank if no official implementation has been verified.
+  - type: textarea
+    id: disclosure
+    attributes:
+      label: Uncertainty or disclosure
+      description: Mention classification uncertainty and whether you are an author of the paper.

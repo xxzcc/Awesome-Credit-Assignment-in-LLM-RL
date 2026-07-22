@@ -1,11 +1,16 @@
-# Awesome Credit Assignment in LLM RL
+# Awesome Credit Assignment in LLM RL [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![arXiv](https://img.shields.io/badge/arXiv-2604.09459-b31b1b.svg)](https://arxiv.org/abs/2604.09459)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/xxzcc/Awesome-Credit-Assignment-in-LLM-RL/pulls)
 
-A curated list of papers and resources on **Credit Assignment in Reinforcement Learning for Large Language Models**, organized by our two-dimensional taxonomy (granularity x methodology).
+Long-horizon LLM reasoning and agents often learn from sparse outcome rewards. **Which token, step, turn, action, or agent deserves the credit?**
+
+**47-method survey taxonomy** | **26 newer entries** | **16 benchmarks** | **Regularly updated**
+
+[Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.07 Update](docs/releases/v2026.07.md)
+
+A curated research map of **credit assignment in reinforcement learning for large language models**, organized by granularity and methodology across reasoning, agentic, and multi-agent settings.
 
 This repository accompanies our survey paper:
 
@@ -15,7 +20,33 @@ This repository accompanies our survey paper:
 >
 > [[Paper]](https://arxiv.org/abs/2604.09459)
 
-The original survey snapshot covers **47 credit assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. This repository is maintained as a living list and may include newer or adjacent papers beyond the paper snapshot.
+The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **26 newer entries and related resources** beyond that snapshot.
+
+---
+
+## Contents
+
+- [Recent Additions](#recent-additions)
+- [Foundational & Background](#foundational--background)
+  - [Surveys & Overviews](#surveys--overviews)
+  - [Classical RL Foundations](#classical-rl-foundations)
+  - [RL Algorithms for LLMs](#rl-algorithms-for-llms)
+  - [PRM Foundations](#prm-foundations)
+- [Credit Assignment in Reasoning RL](#credit-assignment-in-reasoning-rl)
+  - [Token-Level Methods](#token-level-methods)
+  - [Segment-Level Methods](#segment-level-methods)
+  - [Step-Level Methods](#step-level-methods)
+- [Credit Assignment in Agentic RL](#credit-assignment-in-agentic-rl)
+  - [Turn-Level Process Reward Models](#turn-level-process-reward-models)
+  - [Hindsight & Counterfactual Methods](#hindsight--counterfactual-methods)
+  - [Critic-Free Step-Level Methods](#critic-free-step-level-methods)
+  - [Hierarchical Methods](#hierarchical-methods)
+  - [Information-Theoretic Methods](#information-theoretic-methods)
+  - [Implicit & DPO-Based Methods](#implicit--dpo-based-methods)
+  - [Infrastructure & Practical Methods](#infrastructure--practical-methods)
+- [Multi-Agent Credit Assignment](#multi-agent-credit-assignment)
+- [Benchmarks](#benchmarks)
+- [Citation](#citation)
 
 ---
 
@@ -44,7 +75,7 @@ Recent agentic-RL papers increasingly move beyond generic trajectory-level rewar
 
 ## Updates
 
-- 🔥 **[2026.07] Latest:** Added grouped 2026 refresh/gap-fill credit-assignment papers, related signals/evaluation resources, and one backfilled 2025 core GRPO credit-assignment paper.
+- **[2026.07] Latest:** Added the grouped paper refresh, method decision guide, machine-readable catalog, release notes, and contribution workflow.
 - **[2026.05]** Added recent agentic, coding-agent, uncertainty-control, multi-agent orchestration, and adjacent credit-assignment papers.
 - **[2026.04]** First version of the survey released on arXiv. Repository created.
 
@@ -110,33 +141,6 @@ Additional related threads kept out of the main method lists: **STARE: Surprisal
 | **Learning CLI Agents with Structured Action Credit under Selective Observation** [[Paper]](https://arxiv.org/abs/2605.08013) | 2026 | Core | Turn/Action | Introduces Action Advantage Assignment (A$^3$) for CLI agents using structured action sub-chain residuals and trajectory margins. |
 | **Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning** [[Paper]](https://arxiv.org/abs/2605.08061) | 2026 | Adjacent | Criterion/Step | Provides structured partial-credit judge rewards; relevant as reward shaping and process-supervision infrastructure. |
 | **In-Context Credit Assignment via the Core** [[Paper]](https://arxiv.org/abs/2605.06920) | 2026 | Related | Contributor/Coalition | Applies cooperative game theory to in-context credit assignment for AI-generated content; related to game-theoretic CA but not LLM-policy RL. |
-
----
-
-## Table of Contents
-
-- [Recent Additions](#recent-additions)
-- [Foundational & Background](#foundational--background)
-  - [Surveys & Overviews](#surveys--overviews)
-  - [Classical RL Foundations](#classical-rl-foundations)
-  - [RL Algorithms for LLMs](#rl-algorithms-for-llms)
-  - [PRM Foundations](#prm-foundations)
-- [Credit Assignment in Reasoning RL](#credit-assignment-in-reasoning-rl)
-  - [Token-Level Methods](#token-level-methods)
-  - [Segment-Level Methods](#segment-level-methods)
-  - [Step-Level Methods](#step-level-methods)
-- [Credit Assignment in Agentic RL](#credit-assignment-in-agentic-rl)
-  - [Turn-Level Process Reward Models](#turn-level-process-reward-models)
-  - [Hindsight & Counterfactual Methods](#hindsight--counterfactual-methods)
-  - [Critic-Free Step-Level Methods](#critic-free-step-level-methods)
-  - [Hierarchical Methods](#hierarchical-methods)
-  - [Information-Theoretic Methods](#information-theoretic-methods)
-  - [Implicit & DPO-Based Methods](#implicit--dpo-based-methods)
-  - [Infrastructure & Practical Methods](#infrastructure--practical-methods)
-- [Multi-Agent Credit Assignment](#multi-agent-credit-assignment)
-- [Benchmarks](#benchmarks)
-- [Citation](#citation)
-- [Contributing](#contributing)
 
 ---
 
@@ -603,11 +607,6 @@ If you find this repository useful, please cite our survey:
 
 ## Contributing
 
-We welcome contributions! If you find a relevant paper that we missed or want to suggest improvements:
-
-1. **Submit an Issue**: Open an issue with the paper details (title, authors, arXiv link, and which category it belongs to).
-2. **Submit a PR**: Fork this repo, add the paper in the appropriate section, and submit a pull request.
-
-Please follow the existing format when adding new entries.
+We welcome carefully reviewed paper suggestions, metadata corrections, and taxonomy improvements. Please read the [contribution guidelines](CONTRIBUTING.md) before opening an issue or pull request.
 
 For any questions or suggestions, feel free to contact: **zcc1959339538@gmail.com**

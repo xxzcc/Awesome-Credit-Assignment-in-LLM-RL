@@ -1,0 +1,27 @@
+name: Validate catalog
+
+"on":
+  pull_request:
+    paths:
+      - README.md
+      - data/**
+      - scripts/build_catalog.py
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - data/**
+      - scripts/build_catalog.py
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Validate machine-readable catalog
+        run: python3 scripts/build_catalog.py --check
