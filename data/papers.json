@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "catalog_version": "2026.07",
-  "entry_count": 73,
+  "entry_count": 74,
   "notes": "Publication and code fields report catalog metadata, not a quality ranking. Empty code URLs mean that code availability has not yet been checked.",
   "papers": [
     {
@@ -1390,6 +1390,25 @@
       "venue": "",
       "publication_status": "arxiv_record",
       "description": "Applies cooperative game theory to in-context credit assignment for AI-generated content; related to game-theoretic CA but not LLM-policy RL."
+    },
+    {
+      "id": "2607.03702",
+      "title": "Agent Reinforcement Learning via Pivotal-Aware Self-Feedback Retry",
+      "year": 2026,
+      "collection": "recent_addition",
+      "update_batch": "2026.07",
+      "scope": "Core",
+      "setting": "Agentic RL",
+      "category": "Core Methods",
+      "granularity": "Turn",
+      "methodology": "Pivotal-aware self-feedback retry",
+      "paper_url": "https://arxiv.org/abs/2607.03702",
+      "source": "arXiv",
+      "code_url": "https://github.com/yuki-younai/PivoARL",
+      "code_status": "official",
+      "venue": "",
+      "publication_status": "arxiv_record",
+      "description": "Identifies the pivotal erroneous turn via structured self-reflection and retries locally from that state, assigning cross-episode credit that rewards correct prefixes while isolating erroneous suffixes."
     }
   ]
 }
