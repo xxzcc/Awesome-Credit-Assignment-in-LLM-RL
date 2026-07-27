@@ -6,7 +6,7 @@
 
 Long-horizon LLM reasoning and agents often learn from sparse outcome rewards. **Which token, step, turn, action, or agent deserves the credit?**
 
-**47-method survey taxonomy** | **26 newer entries** | **16 benchmarks** | **Regularly updated**
+**47-method survey taxonomy** | **27 newer entries** | **16 benchmarks** | **Regularly updated**
 
 [Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.07 Update](docs/releases/v2026.07.md)
 
@@ -20,7 +20,7 @@ This repository accompanies our survey paper:
 >
 > [[Paper]](https://arxiv.org/abs/2604.09459)
 
-The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **26 newer entries and related resources** beyond that snapshot.
+The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **27 newer entries and related resources** beyond that snapshot.
 
 ---
 
@@ -105,7 +105,7 @@ Recent additions are newly added to this repository, not necessarily newly publi
 | **Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards (SC-GRPO)** [[Paper]](https://arxiv.org/abs/2606.18810) | 2026 | Core | Token | Uses verified self-conditioned trajectories to weight GRPO gradients with per-token KL-based credit. |
 | **GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards** [[Paper]](https://arxiv.org/abs/2606.04889) | 2026 | Core | Token | Applies gradient-activation saliency to reweight sequence-level advantages into intrinsic token-wise advantages. |
 | **Verifiable Process Rewards for Agentic Reasoning (VPR)** [[Paper]](https://arxiv.org/abs/2605.10325) | 2026 | Core | Turn (verifiable feedback) | Converts intermediate symbolic or algorithmic oracles into dense turn-level supervision for long-horizon agentic credit assignment. |
-| **Agent Reinforcement Learning via Pivotal-Aware Self-Feedback Retry (PivoARL)** [[Paper]](https://arxiv.org/abs/2607.03702) | 2026 | Core | Turn | Identifies the pivotal erroneous turn via structured self-reflection and retries locally from that state, assigning cross-episode credit that rewards correct prefixes while isolating erroneous suffixes. |
+| **Agent Reinforcement Learning via Pivotal-Aware Self-Feedback Retry (PivoARL)** [[Paper]](https://arxiv.org/abs/2607.03702) | 2026 | Core | Turn/Action | Identifies the pivotal erroneous turn via structured self-reflection and retries locally from that state, assigning cross-episode credit that rewards correct prefixes while isolating erroneous suffixes. |
 
 #### Near-Core / CA-Adjacent Optimization
 

@@ -8,7 +8,8 @@ This file records additions and changes to the repository's editorial taxonomy. 
 
 - A concise `Start Here` introduction to the credit-assignment problem and repository scope.
 - A constraint-driven method decision guide for reasoning, coding, web/GUI, and multi-agent settings.
-- A 73-entry JSON catalog, generated CSV export, and catalog consistency validator.
+- A 74-entry JSON catalog, generated CSV export, and catalog consistency validator.
+- PivoARL as a core Agentic RL method for pivotal-aware cross-episode credit assignment.
 - Standalone contribution guidelines, a paper-submission issue form, and a pull request template.
 - Prepared release notes for the first dated repository release.
 
