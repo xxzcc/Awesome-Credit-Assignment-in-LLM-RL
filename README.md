@@ -105,6 +105,7 @@ Recent additions are newly added to this repository, not necessarily newly publi
 | **Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards (SC-GRPO)** [[Paper]](https://arxiv.org/abs/2606.18810) | 2026 | Core | Token | Uses verified self-conditioned trajectories to weight GRPO gradients with per-token KL-based credit. |
 | **GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards** [[Paper]](https://arxiv.org/abs/2606.04889) | 2026 | Core | Token | Applies gradient-activation saliency to reweight sequence-level advantages into intrinsic token-wise advantages. |
 | **Verifiable Process Rewards for Agentic Reasoning (VPR)** [[Paper]](https://arxiv.org/abs/2605.10325) | 2026 | Core | Turn (verifiable feedback) | Converts intermediate symbolic or algorithmic oracles into dense turn-level supervision for long-horizon agentic credit assignment. |
+| **Agent Reinforcement Learning via Pivotal-Aware Self-Feedback Retry (PivoARL)** [[Paper]](https://arxiv.org/abs/2607.03702) | 2026 | Core | Turn | Identifies the pivotal erroneous turn via structured self-reflection and retries locally from that state, assigning cross-episode credit that rewards correct prefixes while isolating erroneous suffixes. |
 
 #### Near-Core / CA-Adjacent Optimization
 
