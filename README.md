@@ -6,9 +6,9 @@
 
 Long-horizon LLM reasoning and agents often learn from sparse outcome rewards. **Which token, step, turn, action, or agent deserves the credit?**
 
-**47-method survey taxonomy** | **27 newer entries** | **16 benchmarks** | **Regularly updated**
+**47-method survey taxonomy** | **28 newer entries** | **16 benchmarks** | **Regularly updated**
 
-[Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.07 Update](docs/releases/v2026.07.md)
+[Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.08 Update](#202608-additions)
 
 A curated research map of **credit assignment in reinforcement learning for large language models**, organized by granularity and methodology across reasoning, agentic, and multi-agent settings.
 
@@ -20,7 +20,7 @@ This repository accompanies our survey paper:
 >
 > [[Paper]](https://arxiv.org/abs/2604.09459)
 
-The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **27 newer entries and related resources** beyond that snapshot.
+The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **28 newer entries and related resources** beyond that snapshot.
 
 ---
 
@@ -75,7 +75,8 @@ Recent agentic-RL papers increasingly move beyond generic trajectory-level rewar
 
 ## Updates
 
-- **[2026.07] Latest:** Added the grouped paper refresh, method decision guide, machine-readable catalog, release notes, and contribution workflow.
+- **[2026.08] Latest:** Backfilled $\Delta$Belief-RL as a core turn-level method for intrinsic belief-change credit assignment.
+- **[2026.07]** Added the grouped paper refresh, method decision guide, machine-readable catalog, release notes, and contribution workflow.
 - **[2026.05]** Added recent agentic, coding-agent, uncertainty-control, multi-agent orchestration, and adjacent credit-assignment papers.
 - **[2026.04]** First version of the survey released on arXiv. Repository created.
 
@@ -84,6 +85,14 @@ Recent agentic-RL papers increasingly move beyond generic trajectory-level rewar
 ## Recent Additions
 
 Recent additions are newly added to this repository, not necessarily newly published papers. We mark papers as **core** when the method directly changes how sparse outcome signal is assigned to tokens, turns, actions, or agents. Some core papers are backfilled; non-core entries are listed as **near-core**, **related signals**, or **evaluation** resources.
+
+### 2026.08 Additions
+
+#### Backfilled Core
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **Intrinsic Credit Assignment for Long Horizon Interaction ($\Delta$Belief-RL)** [[Paper]](https://arxiv.org/abs/2602.12342) | 2026 | Core | Turn | Uses changes in the policy's log-probability of the known target as dense per-turn rewards, then computes turn-wise group-relative advantages without a separate critic or PRM. |
 
 ### 2026.07 Refresh and Gap-Fill
 

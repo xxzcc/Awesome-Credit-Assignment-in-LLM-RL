@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": "2026.07",
-  "entry_count": 74,
+  "catalog_version": "2026.08",
+  "entry_count": 75,
   "notes": "Publication and code fields report catalog metadata, not a quality ranking. Empty code URLs mean that code availability has not yet been checked.",
   "papers": [
     {
@@ -1409,6 +1409,25 @@
       "venue": "",
       "publication_status": "arxiv_record",
       "description": "Identifies the pivotal erroneous turn via structured self-reflection and retries locally from that state, assigning cross-episode credit that rewards correct prefixes while isolating erroneous suffixes."
+    },
+    {
+      "id": "2602.12342",
+      "title": "Intrinsic Credit Assignment for Long Horizon Interaction",
+      "year": 2026,
+      "collection": "recent_addition",
+      "update_batch": "2026.08",
+      "scope": "Core",
+      "setting": "Agentic RL",
+      "category": "Backfilled Core",
+      "granularity": "Turn",
+      "methodology": "Intrinsic belief-change reward / Turn-wise GRPO",
+      "paper_url": "https://arxiv.org/abs/2602.12342",
+      "source": "arXiv",
+      "code_url": "https://github.com/bethgelab/delta-belief-rl",
+      "code_status": "official",
+      "venue": "",
+      "publication_status": "arxiv_record",
+      "description": "Uses changes in the policy's log-probability of the known target as dense per-turn rewards, then computes turn-wise group-relative advantages without a separate critic or PRM."
     }
   ]
 }
