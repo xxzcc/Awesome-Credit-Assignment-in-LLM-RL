@@ -6,9 +6,9 @@
 
 Long-horizon LLM reasoning and agents often learn from sparse outcome rewards. **Which token, step, turn, action, or agent deserves the credit?**
 
-**47-method survey taxonomy** | **28 newer entries** | **16 benchmarks** | **Regularly updated**
+**47-method survey taxonomy** | **29 newer entries** | **16 benchmarks** | **Regularly updated**
 
-[Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.08 Update](#202608-additions)
+[Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.09 Update](#202609-additions)
 
 A curated research map of **credit assignment in reinforcement learning for large language models**, organized by granularity and methodology across reasoning, agentic, and multi-agent settings.
 
@@ -20,7 +20,7 @@ This repository accompanies our survey paper:
 >
 > [[Paper]](https://arxiv.org/abs/2604.09459)
 
-The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **28 newer entries and related resources** beyond that snapshot.
+The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **29 newer entries and related resources** beyond that snapshot.
 
 ---
 
@@ -85,6 +85,14 @@ Recent agentic-RL papers increasingly move beyond generic trajectory-level rewar
 ## Recent Additions
 
 Recent additions are newly added to this repository, not necessarily newly published papers. We mark papers as **core** when the method directly changes how sparse outcome signal is assigned to tokens, turns, actions, or agents. Some core papers are backfilled; non-core entries are listed as **near-core**, **related signals**, or **evaluation** resources.
+
+### 2026.09 Additions
+
+#### Core Methods
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **DRACO: Fine-Grained Credit Assignment with Dynamic Rubrics for Long-Horizon Agent Training** [[Paper]](https://arxiv.org/abs/2609.04094) | 2026 | Core | Step | Scores dynamically generated per-trajectory rubrics once per rollout with an LLM judge, then redistributes the group-relative advantage in closed form over the steps the judge attributes to each criterion; uses no outcome reward and no learned attribution module. |
 
 ### 2026.08 Additions
 

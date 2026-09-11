@@ -6,7 +6,7 @@ This directory contains the structured catalog behind the curated method list.
 - [`papers.csv`](papers.csv) is generated for spreadsheets and data analysis.
 - The main [`README.md`](../README.md) remains the editorial view, with longer explanations and grouping.
 
-The catalog currently contains 75 entries: 47 methods from the survey snapshot and 28 later additions or related resources.
+The catalog currently contains 76 entries: 47 methods from the survey snapshot and 29 later additions or related resources.
 
 ## Schema
 
