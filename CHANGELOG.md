@@ -8,9 +8,10 @@ This file records additions and changes to the repository's editorial taxonomy. 
 
 - A concise `Start Here` introduction to the credit-assignment problem and repository scope.
 - A constraint-driven method decision guide for reasoning, coding, web/GUI, and multi-agent settings.
-- A 75-entry JSON catalog, generated CSV export, and catalog consistency validator.
+- A machine-readable JSON catalog, generated CSV export, and catalog consistency validator.
 - PivoARL as a core Agentic RL method for pivotal-aware cross-episode credit assignment.
 - DeltaBelief-RL as a backfilled core Agentic RL method for intrinsic belief-change rewards and turn-wise credit assignment.
+- DRACO as a core Agentic RL method for rubric-attributed step-level credit assignment.
 - Standalone contribution guidelines, a paper-submission issue form, and a pull request template.
 - Prepared release notes for the first dated repository release.
 
