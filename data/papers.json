@@ -1446,7 +1446,7 @@
       "code_status": "official",
       "venue": "",
       "publication_status": "arxiv_record",
-      "description": "Scores dynamically generated per-trajectory rubrics once per rollout with an LLM judge, then redistributes the group-relative advantage in closed form over the steps the judge attributes to each criterion; uses no outcome reward and no learned attribution module."
+      "description": "Scores dynamically generated per-trajectory rubrics once per rollout with an LLM judge, then redistributes the group-relative advantage in closed form over the steps the judge attributes to each criterion; uses no ground-truth task-success reward, verifier, or learned attribution module."
     }
   ]
 }

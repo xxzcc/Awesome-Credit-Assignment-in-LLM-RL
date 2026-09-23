@@ -92,7 +92,7 @@ Recent additions are newly added to this repository, not necessarily newly publi
 
 | Paper | Year | Type | Granularity | Why it is relevant |
 |-------|------|------|-------------|--------------------|
-| **DRACO: Fine-Grained Credit Assignment with Dynamic Rubrics for Long-Horizon Agent Training** [[Paper]](https://arxiv.org/abs/2609.04094) | 2026 | Core | Step | Scores dynamically generated per-trajectory rubrics once per rollout with an LLM judge, then redistributes the group-relative advantage in closed form over the steps the judge attributes to each criterion; uses no outcome reward and no learned attribution module. |
+| **DRACO: Fine-Grained Credit Assignment with Dynamic Rubrics for Long-Horizon Agent Training** [[Paper]](https://arxiv.org/abs/2609.04094) | 2026 | Core | Step | Scores dynamically generated per-trajectory rubrics once per rollout with an LLM judge, then redistributes the group-relative advantage in closed form over the steps the judge attributes to each criterion; uses no ground-truth task-success reward, verifier, or learned attribution module. |
 
 ### 2026.08 Additions
 
