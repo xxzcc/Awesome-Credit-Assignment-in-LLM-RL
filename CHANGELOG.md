@@ -12,6 +12,7 @@ This file records additions and changes to the repository's editorial taxonomy. 
 - PivoARL as a core Agentic RL method for pivotal-aware cross-episode credit assignment.
 - DeltaBelief-RL as a backfilled core Agentic RL method for intrinsic belief-change rewards and turn-wise credit assignment.
 - DRACO as a core Agentic RL method for rubric-attributed step-level credit assignment.
+- NeuroMAS as a related signal for joint multi-agent training from a single shared terminal reward.
 - Standalone contribution guidelines, a paper-submission issue form, and a pull request template.
 - Prepared release notes for the first dated repository release.
 
