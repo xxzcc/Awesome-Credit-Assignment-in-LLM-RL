@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "catalog_version": "2026.09",
-  "entry_count": 76,
+  "entry_count": 77,
   "notes": "Publication and code fields report catalog metadata, not a quality ranking. Empty code URLs mean that code availability has not yet been checked.",
   "papers": [
     {
