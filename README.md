@@ -6,9 +6,9 @@
 
 Long-horizon LLM reasoning and agents often learn from sparse outcome rewards. **Which token, step, turn, action, or agent deserves the credit?**
 
-**47-method survey taxonomy** | **29 newer entries** | **16 benchmarks** | **Regularly updated**
+**47-method survey taxonomy** | **30 newer entries** | **16 benchmarks** | **Regularly updated**
 
-[Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.09 Update](#202609-additions)
+[Start Here: 3-Minute Guide](START_HERE.md) | [Method Decision Guide](method_decision_tree.md) | [Machine-Readable Catalog](data/README.md) | [2026.11 Update](#202611-additions)
 
 A curated research map of **credit assignment in reinforcement learning for large language models**, organized by granularity and methodology across reasoning, agentic, and multi-agent settings.
 
@@ -20,7 +20,7 @@ This repository accompanies our survey paper:
 >
 > [[Paper]](https://arxiv.org/abs/2604.09459)
 
-The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **29 newer entries and related resources** beyond that snapshot.
+The original survey snapshot covers **47 credit-assignment methods** (41 core, 6 adjacent enablers) published between 2024 and early 2026. The living catalog adds **30 newer entries and related resources** beyond that snapshot.
 
 ---
 
@@ -85,6 +85,14 @@ Recent agentic-RL papers increasingly move beyond generic trajectory-level rewar
 ## Recent Additions
 
 Recent additions are newly added to this repository, not necessarily newly published papers. We mark papers as **core** when the method directly changes how sparse outcome signal is assigned to tokens, turns, actions, or agents. Some core papers are backfilled; non-core entries are listed as **near-core**, **related signals**, or **evaluation** resources.
+
+### 2026.11 Additions
+
+#### Related Signals
+
+| Paper | Year | Type | Granularity | Why it is relevant |
+|-------|------|------|-------------|--------------------|
+| **NeuroMAS: Multi-Agent Systems as Neural Networks with Joint Reinforcement Learning** [[Paper]](https://arxiv.org/abs/2605.16757) | 2026 | Related Signal | Agent | Jointly trains every agent node of a layered LLM multi-agent network with REINFORCE and one shared binary terminal reward (per-node EMA baseline, no intermediate or per-agent credit signal); a uniform-credit reference point for multi-agent credit assignment methods. |
 
 ### 2026.09 Additions
 

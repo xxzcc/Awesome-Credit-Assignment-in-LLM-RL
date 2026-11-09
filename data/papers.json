@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "catalog_version": "2026.09",
-  "entry_count": 76,
+  "entry_count": 77,
   "notes": "Publication and code fields report catalog metadata, not a quality ranking. Empty code URLs mean that code availability has not yet been checked.",
   "papers": [
     {
@@ -1447,6 +1447,25 @@
       "venue": "",
       "publication_status": "arxiv_record",
       "description": "Scores dynamically generated per-trajectory rubrics once per rollout with an LLM judge, then redistributes the group-relative advantage in closed form over the steps the judge attributes to each criterion; uses no ground-truth task-success reward, verifier, or learned attribution module."
+    },
+    {
+      "id": "2605.16757",
+      "title": "NeuroMAS: Multi-Agent Systems as Neural Networks with Joint Reinforcement Learning",
+      "year": 2026,
+      "collection": "recent_addition",
+      "update_batch": "2026.11",
+      "scope": "Related Signal",
+      "setting": "Multi-Agent RL",
+      "category": "Related Signals",
+      "granularity": "Agent",
+      "methodology": "Shared terminal reward",
+      "paper_url": "https://arxiv.org/abs/2605.16757",
+      "source": "arXiv",
+      "code_url": "https://github.com/haoranlustat/NeuroMAS",
+      "code_status": "official",
+      "venue": "STAI-X 2026",
+      "publication_status": "venue_listed",
+      "description": "Jointly trains every agent node of a layered LLM multi-agent network with REINFORCE and one shared binary terminal reward (per-node EMA baseline, no intermediate or per-agent credit signal); a uniform-credit reference point for multi-agent credit assignment methods."
     }
   ]
 }
