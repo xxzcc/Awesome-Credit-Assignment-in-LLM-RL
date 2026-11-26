@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": "2026.09",
-  "entry_count": 76,
+  "catalog_version": "2026.11",
+  "entry_count": 77,
   "notes": "Publication and code fields report catalog metadata, not a quality ranking. Empty code URLs mean that code availability has not yet been checked.",
   "papers": [
     {
@@ -1447,6 +1447,25 @@
       "venue": "",
       "publication_status": "arxiv_record",
       "description": "Scores dynamically generated per-trajectory rubrics once per rollout with an LLM judge, then redistributes the group-relative advantage in closed form over the steps the judge attributes to each criterion; uses no ground-truth task-success reward, verifier, or learned attribution module."
+    },
+    {
+      "id": "2606.00593",
+      "title": "SPADER: Step-wise Peer Advantage with Diversity-Aware Exploration Rewards for Multi-Answer Question Answering",
+      "year": 2026,
+      "collection": "recent_addition",
+      "update_batch": "2026.11",
+      "scope": "Core",
+      "setting": "Agentic RL",
+      "category": "Core Methods",
+      "granularity": "Step",
+      "methodology": "Critic-free step-wise peer advantage",
+      "paper_url": "https://aclanthology.org/2026.emnlp-main.894/",
+      "source": "ACL Anthology",
+      "code_url": "https://github.com/KhanCold/spader",
+      "code_status": "official",
+      "venue": "EMNLP",
+      "publication_status": "venue_listed",
+      "description": "Aligns parallel search trajectories by decision step and estimates critic-free step advantages from peer returns; a separate diversity-aware reward encourages finding rare correct answers."
     }
   ]
 }
